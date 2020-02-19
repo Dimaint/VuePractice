@@ -34,7 +34,9 @@
 
       <v-toolbar-items >
         <v-btn text small v-for="link of links"
-        :key="link.title">
+        :key="link.title"
+        :to="link.url"
+        >
           <v-icon left>{{link.icon}}</v-icon>
           {{link.title}}</v-btn>
       </v-toolbar-items>
