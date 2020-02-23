@@ -8,7 +8,7 @@
       :to="link.url" 
       >
         <v-list-item-icon>
-          <v-icon color="pink">{{link.icon}}</v-icon>
+          <v-icon >{{link.icon}}</v-icon>
         </v-list-item-icon>
 
         <v-list-item-content>
@@ -23,8 +23,8 @@
     
     tile
   >
-   <v-toolbar dark color="primary">
-      <v-app-bar-nav-icon 
+   <v-toolbar dark color="primary" >
+      <v-app-bar-nav-icon class="hidden-md-and-up"
         @click="drawer=!drawer">
       </v-app-bar-nav-icon>
 
@@ -32,7 +32,7 @@
 
       <v-spacer></v-spacer>
 
-      <v-toolbar-items >
+      <v-toolbar-items class="hidden-sm-and-down">
         <v-btn text small v-for="link of links"
         :key="link.title"
         :to="link.url"
