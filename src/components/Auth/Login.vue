@@ -23,26 +23,37 @@
                 
               </v-toolbar>
               <v-card-text>
-                <v-form>
+                <v-form 
+                ref="form"
+                v-model="valid"
+                validation>
                   <v-text-field
-                    label="Login"
-                    name="login"
+                    label="Email"
+                    name="email"
                     prepend-icon="mdi-account"
                     type="text"
+                    v-model="email"
+                    :rules="emailRules"
                   />
 
                   <v-text-field
-                    id="password"
                     label="Password"
                     name="password"
                     prepend-icon="mdi-lock"
                     type="password"
+                    v-model="password"
+                    :counter="6"
+                    :rules="passwordRules"
                   />
                 </v-form>
               </v-card-text>
               <v-card-actions>
                 <v-spacer />
-                <v-btn color="primary">Login</v-btn>
+                <v-btn 
+                color="primary"
+                @click="onSubmit"
+                :disabled="!valid"
+                >Login</v-btn>
               </v-card-actions>
             </v-card>
           </v-col>
@@ -53,7 +64,32 @@
 <script>
 export default {
     data (){
-        return{}
+        return{
+          email: '',
+          password: '',
+          valid: false,
+          emailRules: [
+            v => !!v || 'E-mail is required',
+            v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
+          ],
+          passwordRules: [
+            v => !!v || 'Password is required',
+            v => (v && v.length >= 6) || 'Password must be less than 6 characters',
+          ]
+        }
+    },
+    methods: {
+      onSubmit () {
+          if (this.$refs.form.validate()){
+            const user = {
+              email: this.email,
+              password: this.password
+            }
+
+            // eslint-disable-next-line no-console
+            console.log(user)
+          }
+      }
     }
 }
 </script>
