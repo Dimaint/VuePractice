@@ -1,18 +1,54 @@
 <template>
-    <v-container>
-        <v-layout row> 
-            <v-flex xs12>
-                <h1>orders</h1>
-            </v-flex>
-        </v-layout>
-        
-    </v-container>
+  <v-container>
+    <v-layout row>
+      <v-flex xs12 sm6 offset-sm3>
+          <h1 class="text--secondary mb-3">Orders</h1>
+        <v-list subheader two-line flat>
+          <v-list-item-group v-model="settings" multiple>
+            <v-list-item v-for="order in orders" :key="order.id">
+              <template >
+                <v-list-item-action>
+                  <v-checkbox :imput-value="order.done" @change="markDone(order)" color="primary" ></v-checkbox>
+                </v-list-item-action>
+
+                <v-list-item-content>
+                  <v-list-item-title>{{order.name}}</v-list-item-title>
+                  <v-list-item-subtitle>{{order.phone}}</v-list-item-subtitle>
+                </v-list-item-content>
+                <v-list-item-action>
+                    <v-btn :to="'/ad/' + order.adId" class="primary">Open</v-btn>
+                </v-list-item-action>
+              </template>
+            </v-list-item>
+          </v-list-item-group>
+        </v-list>
+      </v-flex>
+    </v-layout>
+  </v-container>
 </template>
 
 <script>
 export default {
-    data (){
-        return{}
-    }
-}
+  data() {
+    return {
+        orders: [
+            {
+                id: '123',
+                name: 'Vlad',
+                phone: '8-777-666-55-44',
+                adid: '235',
+                done: false
+
+            }
+            
+
+        ]
+    };
+  },
+  methods: {
+      markDone (order) {
+          order.done = true
+      }
+  }
+};
 </script>
