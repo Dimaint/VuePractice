@@ -85,7 +85,7 @@ export default {
               email: this.email,
               password: this.password
             }
-
+            
             // eslint-disable-next-line no-console
             console.log(user)
           }

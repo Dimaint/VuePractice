@@ -16,7 +16,7 @@
                
                </v-img>
              </v-flex>
-             <v-flex xs8>
+             <v-flex xs8 >
                <v-card-text>
                  <h2 class="text--primary">{{ad.title}}</h2>
                  <p>{{ad.description}}</p>

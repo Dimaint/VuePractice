@@ -25,7 +25,7 @@ export default {
           ]
     },
     mutations: {
-      crateAd (state, payload) {
+      createAd (state, payload) {
         state.ads.push(payload)
 
       }
