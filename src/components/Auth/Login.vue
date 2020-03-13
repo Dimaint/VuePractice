@@ -74,9 +74,9 @@ export default {
             v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
           ],
           passwordRules: [
-            v => !!v || 'Password is required',
-            v => (v && v.length >= 6) || 'Password must be less than 6 characters',
-          ]
+          v => !!v || 'Password is required',
+          v => (v && v.length >= 6) || 'Password must be equal or more than 6 characters'
+        ]
         }
     },
     computed: {
