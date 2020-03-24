@@ -64,7 +64,7 @@
       >
         {{ error }}
         <v-spacer></v-spacer>
-        <v-btn dark text flat @click="closeError">
+        <v-btn dark text @click="closeError">
           Close
         </v-btn>
       </v-snackbar>

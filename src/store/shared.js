@@ -10,7 +10,7 @@ export default {
     setError(state, payload) {
       state.error = payload;
     },
-    cleaError(state) {
+    clearError(state) {
       state.error = null;
     }
   },
