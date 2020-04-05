@@ -5,6 +5,7 @@
         <v-flex xs12>
           <v-carousel>
             <v-carousel-item
+              contain
               v-for="ad in promoAds"
               :key="ad.id"
               :src="ad.imageSrc"
@@ -50,7 +51,7 @@
   <div v-else>
     <v-container>
       <v-layout row>
-        <v-flex xs12 class="text-xs-center pt-7">
+        <v-flex xs12 class="text-center pt-7">
           <v-progress-circular
             :size="100"
             :width="3"
