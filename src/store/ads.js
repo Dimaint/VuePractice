@@ -15,27 +15,7 @@ class Ad {
 export default {
     state: {
         ads: [
-            // {
-            //   title: "First ad",
-            //   description: "Hello i am description",
-            //   promo: false,
-            //   imageSrc: "https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg",
-            //   id: "123"
-            // },
-            // {
-            //   title: "Second ad",
-            //   description: "Hello i am description",
-            //   promo: true,
-            //   imageSrc: "https://cdn.vuetifyjs.com/images/carousel/sky.jpg",
-            //   id: "1234"
-            // },
-            // {
-            //   title: "Third ad",
-            //   description: "Hello i am description",
-            //   promo: true,
-            //   imageSrc: "https://cdn.vuetifyjs.com/images/carousel/bird.jpg",
-            //   id: "12345"
-            // }
+            
           ]
     },
     mutations: {
@@ -145,8 +125,10 @@ export default {
             })
 
         },
-        myAds (state) {
-            return state.ads
+        myAds (state, getters) {
+            return state.ads.filter(ad =>{
+              return ad.ownerId === getters.user.id
+            })
         },
         adById (state) {
           return adId => {

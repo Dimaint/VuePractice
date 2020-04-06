@@ -26,7 +26,7 @@
       <v-card-actions>
         <v-spacer></v-spacer>
         <v-btn flat @click="onCancel">Cancel</v-btn>
-        <v-btn color="success" flat @click="onSave">Save</v-btn>
+        <v-btn flat color="success" @click="onSave">Save</v-btn>
       </v-card-actions>
     </v-card>
   </v-dialog>
@@ -46,7 +46,7 @@ export default {
       onCancel () {
       this.editedDescription = this.ad.description
       this.editedTitle = this.ad.title
-      this.modal = false
+      this.dialog = false
     },
       onSave () {
       if (this.editedDescription !== '' && this.editedTitle !== '') {
@@ -57,7 +57,7 @@ export default {
           id: this.ad.id
         })
 
-        this.modal = false
+        this.dialog = false
       }
     }
   }
